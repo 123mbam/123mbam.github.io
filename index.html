@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meryam Bukhari</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,540 +12,315 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            color: #333;
+            background: #fff;
         }
 
-        /* Navigation Ribbon */
-        .nav-ribbon {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 0;
-            position: sticky;
+        /* Navigation */
+        nav {
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
             z-index: 100;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav-ribbon ul {
+        nav ul {
             list-style: none;
             display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-ribbon li {
-            margin: 0;
-        }
-
-        .nav-ribbon a {
-            display: block;
-            padding: 20px 30px;
-            text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-ribbon a:hover, .nav-ribbon a.active {
-            color: #c2410c;
-            border-bottom-color: #ea580c;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 800px;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 40px;
         }
 
-        .page-content {
+        nav a {
+            color: #999;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #000;
+        }
+
+        /* Page Container */
+        .page {
             display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
 
-        .page-content.active {
-            display: block;
-            animation: fadeIn 0.4s ease-out;
+        .page.active {
+            display: flex;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Split Layout */
+        .image-side {
+            width: 50%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            bottom: 0;
         }
 
-        .page-content h1 {
-            color: #1e293b;
+        .content-side {
+            width: 50%;
+            margin-left: 50%;
+            padding: 80px 100px;
+            background: #fff;
+            overflow-y: auto;
+            height: calc(100vh - 60px);
+        }
+
+        .tagline {
+            color: #999;
+            font-size: 16px;
             margin-bottom: 40px;
-            font-size: 3rem;
-            text-align: left;
-            font-weight: 700;
-            letter-spacing: -0.025em;
         }
 
-        .page-content p {
-            text-align: left;
-            margin-bottom: 24px;
+        h1 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        h1 em {
+            font-style: italic;
+        }
+
+        p {
             font-size: 16px;
             line-height: 1.7;
-            color: #475569;
-        }
-
-        .page-content h2 {
-            color: #1e293b;
-            margin-top: 40px;
             margin-bottom: 20px;
-            font-size: 1.5em;
-            font-weight: 600;
+            color: #333;
         }
 
-        /* About Page Photo Styling */
-        .about-photo {
-            width: 200px;
-            height: 250px;
-            float: left;
-            margin: 0 40px 30px 0;
-            border-radius: 16px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #fed7aa, #fdba74);
+        a {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #666;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 50px 0 20px 0;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: "• ";
+            margin-right: 8px;
+        }
+
+        .date-prefix {
+            color: #666;
+            margin-right: 5px;
+        }
+
+        .caption {
+            color: #999;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 3px solid #ffffff;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 13px;
-        }
-
-        .about-content {
-            overflow: hidden;
-        }
-
-        /* Links Styling */
-        .talk-links {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 16px;
-            margin-top: 40px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-        }
-
-        .talk-links h2 {
-            margin-top: 0;
-            margin-bottom: 30px;
-            color: #1e293b;
-        }
-
-        .talk-links ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .talk-links li {
-            margin-bottom: 20px;
-            padding: 24px;
-            background: #ffffff;
-            border-radius: 12px;
-            border-left: 4px solid #ea580c;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-        }
-
-        .talk-links li:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-            border-left-color: #c2410c;
-        }
-
-        .talk-links a {
-            color: #1e293b;
+            background: #f0f0f0;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 8px;
+            color: #999;
+            font-size: 20px;
         }
 
-        .talk-links a:hover {
-            color: #ea580c;
+        .social-icons a:hover {
+            background: #e0e0e0;
+            color: #666;
         }
 
-        .talk-description {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.5;
-        }
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                gap: 30px;
+                padding: 0 20px;
+            }
 
-        /* Travel Maps Styling */
-        .travel-maps {
-            margin-top: 40px;
-        }
-
-        .map-container {
-            margin-bottom: 32px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-        }
-
-        .map-header {
-            background: linear-gradient(135deg, #ea580c, #dc2626);
-            color: #ffffff;
-            padding: 20px 24px;
-            font-weight: 600;
-            font-size: 16px;
-        }
-
-        .map-embed {
-            width: 100%;
-            height: 300px;
-            border: none;
-            display: block;
-        }
-
-        .map-description {
-            padding: 20px 24px;
-            color: #64748b;
-            background: #ffffff;
-        }
-        
-        /* Contact Form Styling */
-        .contact-form {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 16px;
-            margin-top: 40px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #1e293b;
-            font-size: 14px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            font-size: 15px;
-            background: #ffffff;
-            color: #1e293b;
-            transition: border-color 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: #ea580c;
-            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
-        }
-
-        .contact-form button {
-            background: linear-gradient(135deg, #ea580c, #dc2626);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
-        }
-
-        .contact-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.4);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-ribbon a {
-                padding: 16px 20px;
+            nav a {
                 font-size: 14px;
             }
-            
-            .container {
-                padding: 40px 20px;
-            }
-            
-            .page-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .about-photo {
-                width: 150px;
-                height: 180px;
-                margin: 0 20px 20px 0;
+
+            .page.active {
+                flex-direction: column;
             }
 
-            .talk-links, .contact-form {
-                padding: 24px;
+            .image-side {
+                width: 100%;
+                min-height: 40vh;
+            }
+
+            .content-side {
+                width: 100%;
+                padding: 40px 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Ribbon -->
-    <nav class="nav-ribbon">
-        <div class="nav-container">
-            <ul>
-                <li><a href="#about" class="nav-link active">About</a></li>
-                <li><a href="#talks" class="nav-link">Talks and Writing</a></li>
-                <li><a href="#travel" class="nav-link">Travel</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about" class="nav-link active">About</a></li>
+            <li><a href="#talks" class="nav-link">Talks and Writing</a></li>
+            <li><a href="#travel" class="nav-link">Travel</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Main Content Container -->
-    <div class="container">
-        <!-- About Page -->
-        <div id="about" class="page-content active">
-            <h1>About</h1>
-            <div class="about-photo">
-                <img src="websiteprofile.jpg" alt="Professional headshot">
-            </div>
-            <div class="about-content">
-                <p>I am a Product Leader in Google's ads business, where I have contributed to YouTube, Display, and privacy efforts in Android. I partner cross-functionally to solve problems that make ads better for our advertisers. I have launched optimization features to grow supply, price effectively, bid for more online conversions, improve auction dynamics, and privacy proof conversion measurement. I was awarded a top ranked PM designation in the company twice and opportunities for L&D and mentorship for future leaders.</p>
-                
-                <p>Before Google, I worked on smaller adtech and started my full-time career at the Federal Reserve Bank of New York as a Rotational Analyst. After learning, conducting research, and driving a technology transformation program under the mentorship of brilliant central bankers, I graduated the rotational program early. I have earned my MBA from MIT's Sloan School of Management and my BA with honors from Hunter College.</p>
-                
-            </div>
-        </div>
+    <!-- About Page -->
+    <div id="about" class="page active">
+        <div class="image-side" style="background-image: url('./blue.jpg'); background-color: #4a9eca;"></div>
+        <div class="content-side">
+            <div class="tagline">"Believes in optimism, but asks several questions"</div>
+            
+            <h1><em>Meryam Bukhari</em> is a Product Leader in Google's ads business that aims to make advertising better for advertisers and users.</h1>
+            
+            <p>I have contributed to YouTube, Display, and privacy efforts in Android. I partner cross-functionally to solve problems that make ads better for our advertisers. I have launched optimization features to grow supply, price effectively, bid for more online conversions, improve auction dynamics, and privacy proof conversion measurement. I was awarded a top ranked PM designation in the company twice and opportunities for L&D and mentorship for future leaders.</p>
+            
+            <p>Before Google, I worked on smaller adtech and started my full-time career at the Federal Reserve Bank of New York as a Rotational Analyst. After learning, conducting research, and driving a technology transformation program under the mentorship of brilliant central bankers, I graduated the rotational program early. I have earned my MBA from MIT's Sloan School of Management and my BA with honors from Hunter College.</p>
 
-        <!-- Talks and Writing Page -->
-        <div id="talks" class="page-content">
-            <h1>Talks and Writing</h1> 
-            <div class="talk-links">
-                <h2>Featured Talks & Publications</h2>
-                <ul>
-                    <li>
-                        <a href="https://meryam.substack.com/" target="_blank">Think clearly, do better</a>
-                        <div class="talk-description">A newsletter to help folks in Tech, mostly PMs, think clearly</div>
-                    </li>
-                    <li>
-                        <a href="https://meryam.substack.com/p/ai-tutorial-i-vibe-coded-a-tool-to/" target="_blank">AI tutorial: I vibe coded a tool to help me invest in less than a weekend</a>
-                        <div class="talk-description"></div>
-                    </li>
-                    <li>
-                        <a href="https://meryam.substack.com/p/what-to-do-if-you-work-a-marketplace/" target="_blank">6-part series on Marketplace Product Management</a>
-                        <div class="talk-description">What to do if you work a marketplace product role</div>
-                    </li>
-                    <li>
-                        <a href="https://ocw.mit.edu/courses/res-15-003-shaping-the-future-of-work-15-662x-spring-2016/resources/video-mit-technology-conference-with-meryam-bukhari-0/" target="_blank">MIT Technology Conference - Shaping the Future of Work</a>
-                        <div class="talk-description">Presentation on the evolving nature of work and technology's role in workplace transformation</div>
-                    </li>
-                    <li>
-                        <a href="https://libertystreeteconomics.newyorkfed.org/2013/08/the-soma-portfolio-through-time/" target="_blank">The SOMA Portfolio Through Time</a>
-                        <div class="talk-description">Federal Reserve Bank of New York - Analysis of the System Open Market Account portfolio evolution</div>
-                    </li>
-                    <li>
-                        <a href="https://libertystreeteconomics.newyorkfed.org/2013/08/a-history-of-soma-income/" target="_blank">A History of SOMA Income</a>
-                        <div class="talk-description">Federal Reserve Bank of New York - Historical examination of SOMA portfolio income generation</div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+            <h2>Essays</h2>
+            <ul>
+                <li><span class="date-prefix">Q3.25</span><a href="https://meryam.substack.com/p/ai-tutorial-i-vibe-coded-a-tool-to/">AI tutorial: I vibe coded a tool to help me invest in less than a weekend</a></li>
+                <li><span class="date-prefix">Q2.25</span><a href="https://meryam.substack.com/p/what-to-do-if-you-work-a-marketplace/">6-part series on Marketplace Product Management</a></li>
+            </ul>
 
-        <!-- Travel Page -->
-        <div id="travel" class="page-content">
-            <h1>Travel</h1>
-            <p>Travel has been an integral part of my personal and professional development. Experiencing diverse cultures, people, and business gives me perspectives and reaffirms that all markets tend to operate on a shared set of first principles. Here are maps of a few of the places I've visited.</p>
-       <div class="travel-maps">
-                <div class="map-container">
-                    <div class="map-header">Singapore</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1Sj_af64m0wygPOptWNGWJVS-GDE&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+            <div class="caption">Newsletter: <a href="https://meryam.substack.com/">Think clearly, do better</a></div>
 
-                <div class="map-container">
-                    <div class="map-header">Istanbul, Turkey</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1ywgxW3Pbz2o7Rqzf6BakSFtrWwWAvf8&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <div class="map-container">
-                    <div class="map-header">Sydney, Australia</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=14cmu8fmEHft4JxTVtZQzC_Myo6k&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <div class="map-container">
-                    <div class="map-header">Melbourne, Australia</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=102i2K1A91uaSqUGQC5sfDt-R_Ss&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <div class="map-container">
-                    <div class="map-header">Cape Town, South Africa</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1kQc7Zo95825o33fS_ThHCVuswwk&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-           
-           <div class="map-container">
-                    <div class="map-header">Athens, Greece</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1vx4RsUjEvBOQVD-kP_XFt2gJ6ak&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-           <div class="map-container">
-                    <div class="map-header">Portugal</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1QdOoO3eWos2dnaijEFovDtFRLMNifd8&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-           <div class="map-container">
-                    <div class="map-header">Mexico City</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=15N4DrbF8lfkIQovJKsg06HVG5e1NKvU&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-           <div class="map-container">
-                    <div class="map-header">Chicago</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1z8tIJciOGGXjuCFs07b3fm0qsJoB1SA&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-<div class="map-container">
-                    <div class="map-header">Delhi</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=15SjzuAh1YtgzZaYfdfIfsdA2ihjzt-Xh&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-           <div class="map-container">
-                    <div class="map-header">Jakarta, Indonesia</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1aQ35yBrmlsv97ByvaMR4ZbVaIvE&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>   
-           <div class="map-container">
-                    <div class="map-header">London and Berlin</div>
-                    <iframe class="map-embed" 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1AVkhF_9Lnow0dB5HYGgyLSMinHwOvs-8&ehbc=2E312F"
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact Page -->
-        <div id="contact" class="page-content">
-            <h1>Contact</h1>
-
-            <div class="contact-form">
-                <form>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject" required>
-                    
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                    
-                    <button type="submit">Send Message</button>
-                </form>
+            <div class="social-icons">
+                <a href="#" title="Newsletter">📰</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="Spotify">🎵</a>
             </div>
         </div>
     </div>
 
+    <!-- Talks and Writing Page -->
+    <div id="talks" class="page">
+        <div class="image-side" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600');"></div>
+        <div class="content-side">
+            <h2>Talks & Publications</h2>
+            
+            <ul>
+                <li><a href="https://meryam.substack.com/">Think clearly, do better</a> - A newsletter to help folks in Tech, mostly PMs, think clearly</li>
+                <li><a href="https://meryam.substack.com/p/ai-tutorial-i-vibe-coded-a-tool-to/">AI tutorial: I vibe coded a tool to help me invest in less than a weekend</a></li>
+                <li><a href="https://meryam.substack.com/p/what-to-do-if-you-work-a-marketplace/">6-part series on Marketplace Product Management</a> - What to do if you work a marketplace product role</li>
+                <li><a href="https://ocw.mit.edu/courses/res-15-003-shaping-the-future-of-work-15-662x-spring-2016/resources/video-mit-technology-conference-with-meryam-bukhari-0/">MIT Technology Conference - Shaping the Future of Work</a> - Presentation on the evolving nature of work and technology's role in workplace transformation</li>
+                <li><a href="https://libertystreeteconomics.newyorkfed.org/2013/08/the-soma-portfolio-through-time/">The SOMA Portfolio Through Time</a> - Federal Reserve Bank of New York - Analysis of the System Open Market Account portfolio evolution</li>
+                <li><a href="https://libertystreeteconomics.newyorkfed.org/2013/08/a-history-of-soma-income/">A History of SOMA Income</a> - Federal Reserve Bank of New York - Historical examination of SOMA portfolio income generation</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Travel Page -->
+    <div id="travel" class="page">
+        <div class="image-side" style="background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600');"></div>
+        <div class="content-side">
+            <h1>Travel</h1>
+            
+            <p>Travel has been an integral part of my personal and professional development. Experiencing diverse cultures, people, and business gives me perspectives and reaffirms that all markets tend to operate on a shared set of first principles. Here are maps of a few of the places I've visited.</p>
+
+            <h2>Cities & Maps</h2>
+            <ul>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1Sj_af64m0wygPOptWNGWJVS-GDE&ehbc=2E312F">Singapore</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1ywgxW3Pbz2o7Rqzf6BakSFtrWwWAvf8&ehbc=2E312F">Istanbul, Turkey</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=14cmu8fmEHft4JxTVtZQzC_Myo6k&ehbc=2E312F">Sydney, Australia</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=102i2K1A91uaSqUGQC5sfDt-R_Ss&ehbc=2E312F">Melbourne, Australia</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1kQc7Zo95825o33fS_ThHCVuswwk&ehbc=2E312F">Cape Town, South Africa</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1vx4RsUjEvBOQVD-kP_XFt2gJ6ak&ehbc=2E312F">Athens, Greece</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1QdOoO3eWos2dnaijEFovDtFRLMNifd8&ehbc=2E312F">Portugal</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=15N4DrbF8lfkIQovJKsg06HVG5e1NKvU&ehbc=2E312F">Mexico City</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1z8tIJciOGGXjuCFs07b3fm0qsJoB1SA&ehbc=2E312F">Chicago</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=15SjzuAh1YtgzZaYfdfIfsdA2ihjzt-Xh&ehbc=2E312F">Delhi</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1aQ35yBrmlsv97ByvaMR4ZbVaIvE&ehbc=2E312F">Jakarta, Indonesia</a></li>
+                <li><a href="https://www.google.com/maps/d/u/0/embed?mid=1AVkhF_9Lnow0dB5HYGgyLSMinHwOvs-8&ehbc=2E312F">London and Berlin</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="image-side" style="background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600');"></div>
+        <div class="content-side">
+            <h1>Contact</h1>
+            
+            <p>I'm always interested in connecting with people working on interesting problems in technology, product management, and marketplaces.</p>
+
+            <h2>Email</h2>
+            <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+
+            <h2>Connect</h2>
+            <p>Find me on <a href="https://meryam.substack.com/">Substack</a> where I write about product thinking and technology.</p>
+        </div>
+    </div>
+
     <script>
-        // Simple navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
-            const pageContents = document.querySelectorAll('.page-content');
+            const pages = document.querySelectorAll('.page');
             
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Remove active class from all nav links and pages
                     navLinks.forEach(l => l.classList.remove('active'));
-                    pageContents.forEach(p => p.classList.remove('active'));
+                    pages.forEach(p => p.classList.remove('active'));
                     
-                    // Add active class to clicked link
                     this.classList.add('active');
                     
-                    // Show corresponding page
                     const targetId = this.getAttribute('href').substring(1);
-                    const targetPage = document.getElementById(targetId);
-                    if (targetPage) {
-                        targetPage.classList.add('active');
-                    }
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    window.scrollTo(0, 0);
                 });
             });
         });
